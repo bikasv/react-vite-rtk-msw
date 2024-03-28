@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useNavigate } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 import { useStoreDispatch, useStoreSelector } from '@/hooks/redux';
 
@@ -24,7 +24,7 @@ export function AboutYou() {
   const onSubmit = (data: FormPayloadType) => {
     dispatch(setAboutDetails(data));
 
-    void navigate({ to: '/contact' });
+    navigate('/contact');
   };
 
   return (

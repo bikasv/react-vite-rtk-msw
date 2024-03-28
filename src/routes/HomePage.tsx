@@ -1,14 +1,10 @@
-import { createLazyFileRoute, Link } from '@tanstack/react-router';
+import { Link } from 'react-router-dom';
 
 import { Users } from '@/components';
 
 import css from './style.module.css';
 
-export const Route = createLazyFileRoute('/')({
-  component: Index,
-});
-
-function Index() {
+export function HomePage() {
   return (
     <>
       <h1 className={css.title}>Users</h1>

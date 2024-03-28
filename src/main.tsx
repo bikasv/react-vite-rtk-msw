@@ -1,26 +1,12 @@
 import './index.css';
 
-import { createRouter, RouterProvider } from '@tanstack/react-router';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { RouterProvider } from 'react-router-dom';
 
-import { routeTree } from '@/routeTree.gen.ts';
+import { router } from '@/routes';
 import { store } from '@/store';
-
-const router = createRouter({ routeTree });
-
-async function enableMocking() {
-  if (import.meta.env.PROD) {
-    return;
-  }
-
-  const { worker } = await import('../mocks/browser');
-
-  return worker.start({
-    onUnhandledRequest: 'bypass',
-  });
-}
 
 function renderApp() {
   ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -30,6 +16,18 @@ function renderApp() {
       </Provider>
     </React.StrictMode>,
   );
+}
+
+async function enableMocking() {
+  if (import.meta.env.MODE === 'development') {
+    const { worker } = await import('../mocks/browser');
+
+    return worker.start({
+      onUnhandledRequest: 'bypass',
+    });
+  }
+
+  return;
 }
 
 enableMocking()

@@ -1,14 +1,8 @@
-import { createLazyFileRoute } from '@tanstack/react-router';
-
 import { AboutYou } from '@/components';
 
 import css from './style.module.css';
 
-export const Route = createLazyFileRoute('/about')({
-  component: About,
-});
-
-function About() {
+export function AboutPage() {
   return (
     <>
       <h1 className={css.title}>About you</h1>

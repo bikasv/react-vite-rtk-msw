@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useNavigate } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 import { initialState as AboutDefault, setAboutDetails } from '@/components/AboutYou/aboutSlice';
 import { useStoreDispatch, useStoreSelector } from '@/hooks/redux';
@@ -33,7 +33,7 @@ export function Contact() {
         dispatch(setAboutDetails(AboutDefault));
         dispatch(setContactDetails(ContactDefault));
       }).then(() => {
-        void navigate({ to: '/' });
+        navigate('/');
       });
   };
 
