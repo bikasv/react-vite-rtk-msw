@@ -24,7 +24,7 @@ export function AboutYou() {
   const onSubmit = (data: FormPayloadType) => {
     dispatch(setAboutDetails(data));
 
-    navigate({ to: '/contact' });
+    void navigate({ to: '/contact' });
   };
 
   return (

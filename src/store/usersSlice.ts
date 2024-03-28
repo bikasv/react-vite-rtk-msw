@@ -1,5 +1,3 @@
-import type { FetchBaseQueryError } from '@reduxjs/toolkit/query';
-
 import type { RootState } from '@/store';
 import type { FormattedUserType, UsersType, UserType } from '@/types/UsersTypes';
 import { formatDate } from '@/utilities';
@@ -53,7 +51,7 @@ export const usersApi = api.injectEndpoints({
         });
 
         if (addedUser.error) {
-          return { error: addedUser.error as FetchBaseQueryError };
+          return { error: addedUser.error };
         }
 
         const addedUserData = addedUser.data as UserType;

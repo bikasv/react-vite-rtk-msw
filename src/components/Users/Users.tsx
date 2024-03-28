@@ -17,7 +17,7 @@ export function Users() {
   }
 
   function handleDelete(id: number) {
-    deleteUser(id);
+    void deleteUser(id);
   }
 
   return (

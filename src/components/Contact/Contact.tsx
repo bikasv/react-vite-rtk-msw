@@ -33,7 +33,7 @@ export function Contact() {
         dispatch(setAboutDetails(AboutDefault));
         dispatch(setContactDetails(ContactDefault));
       }).then(() => {
-        navigate({ to: '/' });
+        void navigate({ to: '/' });
       });
   };
 

@@ -13,7 +13,7 @@ export const aboutSlice = createSlice({
   initialState,
   reducers: {
     setAboutDetails: (state, action) => {
-      state = action.payload;
+      state = action.payload as typeof initialState;
 
       return state;
     },

@@ -21,5 +21,5 @@ export type FormattedUserType = {
 };
 
 export type UsersType = {
-  results: Array<UserType>;
+  results: UserType[];
 };

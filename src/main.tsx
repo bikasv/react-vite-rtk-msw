@@ -22,7 +22,7 @@ async function enableMocking() {
   });
 }
 
-enableMocking().then(() => {
+function renderApp() {
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
       <Provider store={store}>
@@ -30,4 +30,8 @@ enableMocking().then(() => {
       </Provider>
     </React.StrictMode>,
   );
-});
+}
+
+enableMocking()
+  .then(() => renderApp())
+  .catch((err) => { throw err; });

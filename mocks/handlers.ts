@@ -5,7 +5,7 @@ import type { UsersType, UserType } from '@/types/UsersTypes';
 import users from './data/users.json';
 
 function getSessionData(): UsersType {
-  return JSON.parse(sessionStorage.getItem('users') || '');
+  return JSON.parse(sessionStorage.getItem('users') ?? '') as UsersType;
 }
 
 function setSessionData(data?: UsersType) {
