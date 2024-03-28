@@ -1,0 +1,52 @@
+{
+	"results": [
+		{
+			"dob": "1953-10-03T02:38:54.783Z",
+			"email": "jerry.wood@example.com",
+			"gender": "male",
+			"id": 1,
+			"name": {
+				"first": "Jerry",
+				"last": "Wood",
+				"title": "Mr"
+			},
+			"phone": "07655998878"
+		},
+		{
+			"dob": "1978-10-29T04:56:04.041Z",
+			"email": "katherine.thomas@example.com",
+			"gender": "female",
+			"id": 2,
+			"name": {
+				"first": "Katherine",
+				"last": "Thomas",
+				"title": "Ms"
+			},
+			"phone": "07628331262"
+		},
+		{
+			"dob": "1979-12-26T00:14:19.380Z",
+			"email": "jorge.lee@example.com",
+			"gender": "male",
+			"id": 3,
+			"name": {
+				"first": "Jorge",
+				"last": "Lee",
+				"title": "Mr"
+			},
+			"phone": "07685774969"
+		},
+		{
+			"dob": "1969-05-13T14:37:58.123Z",
+			"email": "britney.snyder@example.com",
+			"gender": "female",
+			"id": 4,
+			"name": {
+				"first": "Britney",
+				"last": "Snyder",
+				"title": "Miss"
+			},
+			"phone": "07940180451"
+		}
+	]
+}

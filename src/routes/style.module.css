@@ -1,0 +1,85 @@
+.title {
+  margin-bottom: 1rem;
+}
+
+.add_button {
+  color: var(--tag-dark);
+  font-size: 4rem;
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border: 1px solid var(--tag-dark);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--tag-light);
+
+    &:hover,
+    &:active,
+    &:focus {
+      border: 1px solid var(--tag-light);
+    }
+  }
+}
+
+.form {
+  input,
+  select {
+    color: var(--black);
+    height: 30px;
+    margin-bottom: 1rem;
+    min-width: 15rem;
+  }
+
+  label,
+  span {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  span {
+    color: var(--tag-dark);
+    font-size: 0.75rem;
+  }
+
+  button {
+    background-color: var(--light-text);
+    border: 1px solid var(--lighter-text);
+    border-radius: 5px;
+    color: var(--dark-text);
+    cursor: pointer;
+    height: 30px;
+    width: 15rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--lighter-text);
+    }
+
+    &:disabled {
+      opacity: 0.8;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    span {
+      color: var(--tag-light);
+    }
+
+    button {
+      background-color: var(--black);
+      border: 1px solid var(--dark-bg);
+      color: var(--lighter-text);
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--dark-bg);
+      }
+    }
+  }
+}
