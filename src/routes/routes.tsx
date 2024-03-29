@@ -1,14 +1,8 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 
-import {
-  AboutPage,
-  ContactPage,
-  ErrorPage,
-  HomePage,
-  Root,
-} from './';
+import { ErrorPage, Root } from './';
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: <Root />,
@@ -16,15 +10,27 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
+        async lazy() {
+          const { HomePage } = await import('./HomePage');
+
+          return { Component: HomePage };
+        },
       },
       {
         path: 'about',
-        element: <AboutPage />,
+        async lazy() {
+          const { AboutPage } = await import('./AboutPage');
+
+          return { Component: AboutPage };
+        },
       },
       {
         path: 'contact',
-        element: <ContactPage />,
+        async lazy() {
+          const { ContactPage } = await import('./ContactPage');
+
+          return { Component: ContactPage };
+        },
       },
     ],
   },
