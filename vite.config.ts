@@ -11,12 +11,4 @@ export default defineConfig(() => ({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  test: {
-    coverage: {
-      provider: 'istanbul',
-    },
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './mocks/setupTest.ts',
-  },
 }));

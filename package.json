@@ -9,7 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview --port=3001",
     "test": "vitest",
-    "test:coverage": "vitest run --coverage",
+    "test:coverage": "rimraf coverage && vitest run --coverage",
     "test:ui": "vitest --ui"
   },
   "dependencies": {
@@ -51,6 +51,7 @@
     "eslint-plugin-unused-imports": "3.1.0",
     "jsdom": "24.0.0",
     "msw": "2.2.10",
+    "rimraf": "5.0.5",
     "typescript": "5.4.3",
     "vite": "5.2.4",
     "vitest": "1.4.0"
