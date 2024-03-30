@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 import aboutReducer from '@/components/AboutYou/aboutSlice';
 import contactReducer from '@/components/Contact/contactSlice';
@@ -18,6 +19,9 @@ export const store = configureStore({
 });
 
 setupListeners(store.dispatch);
+
+export const useStoreDispatch: () => StoreDispatch = useDispatch;
+export const useStoreSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export type RootState = ReturnType<typeof store.getState>;
 export type StoreDispatch = typeof store.dispatch;

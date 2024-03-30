@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 import { initialState as AboutDefault, setAboutDetails } from '@/components/AboutYou/aboutSlice';
-import { useStoreDispatch, useStoreSelector } from '@/hooks/redux';
+import { useStoreDispatch, useStoreSelector } from '@/store';
 import { useAddUserMutation } from '@/store/usersSlice';
 
 import { initialState as ContactDefault, setContactDetails } from './contactSlice';

@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-import { useStoreDispatch, useStoreSelector } from '@/hooks/redux';
+import { useStoreDispatch, useStoreSelector } from '@/store';
 
 import { setAboutDetails } from './aboutSlice';
 import { type FormPayloadType, schema } from './schema';
