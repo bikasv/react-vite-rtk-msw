@@ -31,7 +31,11 @@ export function AboutYou() {
     <>
       <label htmlFor="title">Enter title</label>
       <span>{errors?.title?.message}</span>
-      <select id="title" {...register('title')}>
+      <select
+        id="title"
+        {...register('title')}
+        data-testid="title"
+      >
         <option value="">Please select</option>
         <option value="Mr">Mr</option>
         <option value="Ms">Ms</option>
@@ -41,15 +45,27 @@ export function AboutYou() {
 
       <label htmlFor="first">Enter first name</label>
       <span>{errors?.first?.message}</span>
-      <input id="first" {...register('first')} />
+      <input
+        id="first"
+        {...register('first')}
+        data-testid="first"
+      />
 
       <label htmlFor="last">Enter last name</label>
       <span>{errors?.last?.message}</span>
-      <input id="last" {...register('last')} />
+      <input
+        id="last"
+        {...register('last')}
+        data-testid="last"
+      />
 
       <label htmlFor="gender">Enter gender</label>
       <span>{errors?.gender?.message}</span>
-      <select id="gender" {...register('gender')}>
+      <select
+        id="gender"
+        {...register('gender')}
+        data-testid="gender"
+      >
         <option value="">Please select</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
@@ -61,6 +77,7 @@ export function AboutYou() {
       <input
         id="dob"
         {...register('dob')}
+        data-testid="dob"
         type="date"
       />
 

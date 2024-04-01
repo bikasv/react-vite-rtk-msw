@@ -3,13 +3,39 @@ import '@testing-library/jest-dom/vitest';
 import { cleanup } from '@testing-library/react';
 import { afterAll, afterEach, beforeAll } from 'vitest';
 
-import { mswServer } from './node';
+import { setupStore } from '@/store';
+import { usersApi } from '@/store/usersSlice';
 
-beforeAll(() => mswServer.listen());
+import { setSessionData } from './handlers';
+import { server } from './node';
 
-afterEach(() => {
-  cleanup();
-  mswServer.resetHandlers();
+const store = setupStore({});
+
+export const mockedUseNavigate = vi.fn();
+
+beforeAll(() => server.listen());
+
+beforeEach(() => {
+  setSessionData();
+
+  vi.mock('react-router-dom', async() => {
+    const mod = await vi.importActual<typeof import('react-router-dom')>(
+      'react-router-dom',
+    );
+
+    return {
+      ...mod,
+      useNavigate: () => mockedUseNavigate,
+    };
+  });
 });
 
-afterAll(() => mswServer.close());
+afterEach(() => {
+  server.resetHandlers();
+  store.dispatch(usersApi.util.resetApiState());
+  vi.clearAllMocks();
+  vi.resetAllMocks();
+  cleanup();
+});
+
+afterAll(() => server.close());

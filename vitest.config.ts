@@ -9,7 +9,9 @@ export default defineConfig((configEnv) => mergeConfig(
       coverage: {
         exclude: [
           'mocks/**',
+          'src/routes/**',
           'src/**/index.ts',
+          'src/main.tsx',
         ],
         include: [
           'src/**',
@@ -20,6 +22,7 @@ export default defineConfig((configEnv) => mergeConfig(
       globals: true,
       environment: 'jsdom',
       setupFiles: './mocks/setupTest.ts',
+      silent: false,
     },
   }),
 ));

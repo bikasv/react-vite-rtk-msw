@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,6 +15,8 @@ export function Contact() {
   const navigate = useNavigate();
   const dispatch = useStoreDispatch();
   const storedData = useStoreSelector((state) => state.contact);
+  const [submitError, setSubmitError] = useState('');
+
 
   const {
     register,
@@ -34,16 +37,22 @@ export function Contact() {
         dispatch(setContactDetails(ContactDefault));
       }).then(() => {
         navigate('/');
-      });
+      })
+      .catch(() => setSubmitError('Unable to submit form. Please try again later.'));
   };
 
   return (
     <>
+      <p>
+        <span>{submitError}</span>
+      </p>
+
       <label htmlFor="email">Enter email</label>
       <span>{errors?.email?.message}</span>
       <input
         id="email"
         {...register('email')}
+        data-testid="email"
         type="email"
       />
 
@@ -52,6 +61,7 @@ export function Contact() {
       <input
         id="phone"
         {...register('phone')}
+        data-testid="phone"
         type="tel"
       />
 

@@ -24,9 +24,6 @@ export const usersApi = api.injectEndpoints({
         return formattedResponse;
       },
     }),
-    getUser: builder.query<UserType, number>({
-      query: (id) => `/users/${id}`,
-    }),
     addUser: builder.mutation<UserType, void>({
       invalidatesTags: ['UsersTag'],
       queryFn: async(_arg, { getState }, _extraOptions, fetchWithBaseQuery) => {
@@ -84,6 +81,5 @@ export const usersApi = api.injectEndpoints({
 export const {
   useAddUserMutation,
   useDeleteUserMutation,
-  useGetUserQuery,
   useGetUsersQuery,
 } = usersApi;

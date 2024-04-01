@@ -8,7 +8,7 @@ function getSessionData(): UsersType {
   return JSON.parse(sessionStorage.getItem('users') ?? '') as UsersType;
 }
 
-function setSessionData(data?: UsersType) {
+export function setSessionData(data?: UsersType) {
   if (data) {
     sessionStorage.setItem('users', JSON.stringify(data));
   } else {

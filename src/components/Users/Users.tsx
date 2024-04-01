@@ -13,7 +13,7 @@ export function Users() {
   }
 
   if (error) {
-    return null;
+    return <div>Error fetching users</div>;
   }
 
   function handleDelete(id: number) {
@@ -39,7 +39,12 @@ export function Users() {
             <a href={`tel:${user.phone}`}>{user.phone}</a>
           </p>
 
-          <span className={css.cross} onClick={() => handleDelete(user.id)}>&times;</span>
+          <span
+            className={css.cross}
+            onClick={() => handleDelete(user.id)}
+            role="button"
+          >&times;
+          </span>
         </div>
       ))}
     </div>
