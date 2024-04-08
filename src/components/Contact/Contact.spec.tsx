@@ -49,12 +49,11 @@ describe('Contact page', () => {
     await waitFor(() => expect(mockedUseNavigate).toHaveBeenCalledWith('/'));
   });
 
-  // FIXME: fix the unit test to not fail
   it('should handle server error', async() => {
     const user = userEvent.setup();
 
     server.use(
-      http.post('/api/users/', () => HttpResponse.error()),
+      http.post('/api/users', () => HttpResponse.error()),
     );
 
     renderWithProviders(<Contact />, {
